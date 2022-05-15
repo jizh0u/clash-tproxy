@@ -15,7 +15,7 @@ COPY --from=builder /Country.mmdb /root/.config/clash/
 COPY --from=builder /clash /
 COPY iptable_setup.sh /iptable_setup.sh
 
-RUN apk add --no-cache ca-certificates tzdata iptables && \
+RUN apk add --no-cache ca-certificates tzdata bash iptables && \
     apk del --purge tzdata && \
     rm -rf /var/cache/apk/* && \
     chmod +x /iptable_setup.sh && \
