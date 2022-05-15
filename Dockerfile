@@ -20,4 +20,5 @@ RUN apk add --no-cache ca-certificates tzdata bash iptables && \
     rm -rf /var/cache/apk/* && \
     chmod +x /iptable_setup.sh
 
-ENTRYPOINT ["/iptable_setup.sh", "&&", "/clash", "-d", "/root/.config/clash"]
+ENTRYPOINT [ "/iptable_setup.sh" ]
+CMD [ "/clash", "-d", "/root/.config/clash" ]

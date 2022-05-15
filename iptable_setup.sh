@@ -43,3 +43,7 @@ iptables -t mangle -A PREROUTING -j clash
 # --to-destination 设置为一个可达的地址即可
 sysctl -w net.ipv4.conf.all.route_localnet=1
 iptables -t nat -A PREROUTING -p icmp -d 198.18.0.0/16 -j DNAT --to-destination 127.0.0.1
+
+ip addr
+
+exec "$@"
