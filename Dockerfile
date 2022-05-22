@@ -18,7 +18,7 @@ COPY setup.sh /setup.sh
 RUN apk add --no-cache ca-certificates tzdata bash iptables && \
     apk del --purge tzdata && \
     rm -rf /var/cache/apk/* && \
-    chmod +x /iptable_setup.sh
+    chmod +x /setup.sh
 
 ENTRYPOINT [ "/setup.sh" ]
 CMD [ "/clash", "-d", "/clash_config" ]
