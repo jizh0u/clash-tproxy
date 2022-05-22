@@ -57,6 +57,6 @@ iptables -t nat -A PREROUTING -p icmp -d 198.18.0.0/16 -j DNAT --to-destination 
 ip addr
 
 echo "Download config..."
-wget -O /root/.config/clash/config.yaml CONFIG_URL
+wget -O /root/.config/clash/config.yaml $CONFIG_URL
 
 exec "$@"
