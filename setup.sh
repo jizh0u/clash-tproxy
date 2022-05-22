@@ -46,4 +46,9 @@ iptables -t nat -A PREROUTING -p icmp -d 198.18.0.0/16 -j DNAT --to-destination 
 
 ip addr
 
+if [ ! -e '/clash_config/Country.mmdb' ]; then
+    echo "init /clash_config/Country.mmdb"
+    cp  /root/.config/clash/Country.mmdb /clash_config/Country.mmdb
+fi
+
 exec "$@"

@@ -13,12 +13,12 @@ FROM alpine:latest
 
 COPY --from=builder /Country.mmdb /root/.config/clash/
 COPY --from=builder /clash /
-COPY iptable_setup.sh /iptable_setup.sh
+COPY setup.sh /setup.sh
 
 RUN apk add --no-cache ca-certificates tzdata bash iptables && \
     apk del --purge tzdata && \
     rm -rf /var/cache/apk/* && \
     chmod +x /iptable_setup.sh
 
-ENTRYPOINT [ "/iptable_setup.sh" ]
-CMD [ "/clash", "-d", "/root/.config/clash" ]
+ENTRYPOINT [ "/setup.sh" ]
+CMD [ "/clash", "-d", "/clash_config" ]
