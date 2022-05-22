@@ -20,5 +20,7 @@ RUN apk add --no-cache ca-certificates tzdata bash iptables && \
     rm -rf /var/cache/apk/* && \
     chmod +x /setup.sh
 
+ENV CONFIG_URL=https://your.config.url
+
 ENTRYPOINT [ "/setup.sh" ]
-CMD [ "/clash", "-d", "/clash_config" ]
+CMD [ "/clash", "-d", "/root/.config/clash" ]
